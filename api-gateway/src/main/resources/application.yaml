@@ -7,9 +7,13 @@ spring:
   cloud:
     gateway:
       routes[0]:
-        id: user-service
+        id: say-hello
         uri: lb://user-service
         predicates[0]: Path=/api/user/**
+      routes[1]:
+        id: change-body
+        uri: lb://user-service
+        predicates[0]: Path=/api/body/**
     
 # Eureka Client Configuration
 eureka:
